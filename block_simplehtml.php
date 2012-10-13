@@ -9,7 +9,13 @@ class block_simplehtml extends block_base {
     }
  
     $this->content         =  new stdClass;
-    $this->content->text   = 'The content of our SimpleHTML block!';
+    if (! empty($this->config->text)) {
+    	$this->content->text = $this->config->text;
+	}
+	else {
+		$this->content->text   = 'The content of our SimpleHTML block!';
+	}
+    
     $this->content->footer = 'Footer here...';
  
     return $this->content;
