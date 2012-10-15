@@ -37,7 +37,7 @@ class block_simplehtml extends block_base {
   		return true;
 	}
 	
-/*Tweak options
+/* TODO: Tweak options to activate these
 	public function instance_config_save($data) {
 	   if(get_config('simplehtml', 'Allow_HTML') == '1') {
 	     $data->text = strip_tags($data->text);
@@ -68,6 +68,18 @@ class block_simplehtml extends block_base {
     	$attributes['class'] .= ' block_'. $this->name(); // Append our class to class attribute
     	return $attributes;
 	}
+	
+	// control visibility
+	public function applicable_formats() {
+	  return array(
+	           'site-index' => true,
+	          'course-view' => true, 
+	   'course-view-social' => false,
+	                  'mod' => true, 
+	             'mod-quiz' => false
+	  );
+	}
+	
 
 } 
 
