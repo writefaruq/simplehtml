@@ -31,6 +31,10 @@ class block_simplehtml extends block_base {
 	  if (empty($this->config->text)) {
 	    $this->config->text = 'Default text ...';
 	  }    
+	}
+	
+	public function instance_allow_multiple() {
+  		return true;
 	}	
 } 
 
