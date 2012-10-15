@@ -80,6 +80,26 @@ class block_simplehtml extends block_base {
 	  );
 	}
 	
+	//control cron
+	public function cron() {
+	    mtrace( "Hey, my cron script is running" );
+	 
+	    global $DB; // Global database object
+ 
+	    // Get the instances of the block
+	    $instances = $DB->get_records( 'block_instance', array('blockid'=>'simplehtml') );
+	 
+	    // Iterate over the instances
+	    foreach ($instances as $instance) {
+	 
+	        // Recreate block object
+	        $block = block_instance('simplehtml', $instance);
+	 
+	        // $block is now the equivalent of $this in 'normal' block
+	        // usage, e.g.
+	        $someconfigitem = $block->config->item2;
+	    }
+	}
 
 } 
 
