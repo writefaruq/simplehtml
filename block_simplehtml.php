@@ -37,24 +37,31 @@ class block_simplehtml extends block_base {
   		return true;
 	}
 	
-	// public function instance_config_save($data) {
-	  // if(get_config('simplehtml', 'Allow_HTML') == '1') {
-	    // $data->text = strip_tags($data->text);
-	  // }
-	 
-	  // // And now forward to the default implementation defined in the parent class
-	  // return parent::instance_config_save($data);
-	// }
-	
-	// public function instance_config_save($data) {
-	  // $data = stripslashes_recursive($data);
-	  // $this->config = $data;
-	  // return set_field('block_instance', 
-	                   // 'configdata',
-	                    // base64_encode(serialize($data)),
-	                   // 'id', 
-	                   // $this->instance->id);
-	// }	
+/*Tweak options
+	public function instance_config_save($data) {
+	   if(get_config('simplehtml', 'Allow_HTML') == '1') {
+	     $data->text = strip_tags($data->text);
+	   }
+
+	  // And now forward to the default implementation defined in the parent class
+	   return parent::instance_config_save($data);
+	}
+
+// OR This one
+ 	public function instance_config_save($data) {
+	   $data = stripslashes_recursive($data);
+	   $this->config = $data;
+	   return set_field('block_instance', 
+	                    'configdata',
+	                     base64_encode(serialize($data)),
+	                    'id', 
+	                    $this->instance->id);
+	 }
+*/
+	public function hide_header() {
+  		return true;
+	}
+
 } 
 
 ?>
