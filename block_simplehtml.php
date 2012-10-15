@@ -59,7 +59,14 @@ class block_simplehtml extends block_base {
 	 }
 */
 	public function hide_header() {
-  		return true;
+  		return false;
+	}
+
+	// change CSS/HTML
+	public function html_attributes() {
+    	$attributes = parent::html_attributes(); // Get default values
+    	$attributes['class'] .= ' block_'. $this->name(); // Append our class to class attribute
+    	return $attributes;
 	}
 
 } 
